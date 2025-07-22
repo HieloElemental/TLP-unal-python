@@ -2,6 +2,10 @@
 
 A simple FastAPI project to manage flight registrations and queries.
 
+## Features
+
+- Register new flights with validation for flight number, gate, and status.
+
 ## Setup
 
 1. Install dependencies:
@@ -26,6 +30,10 @@ Run tests with pytest:
 pip install pytest
 pytest
 ```
+
+## Endpoints
+
+- `POST /flights/` - Register a new flight
 
 ## License
 
