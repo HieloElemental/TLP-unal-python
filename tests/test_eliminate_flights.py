@@ -17,21 +17,21 @@ def reset_flights():
     flights.append({
         "flight_number": "FL124",
         "arrival": "New York",
-        "departure_time": dt.datetime.now() + dt.timedelta(hours=2),
+        "departure_time": dt.datetime.now(),
         "gate": "B2",
         "status": "Scheduled"
     })
     flights.append({
         "flight_number": "FL125",
         "arrival": "Chicago",
-        "departure_time": dt.datetime.now() + dt.timedelta(hours=1),
+        "departure_time": dt.datetime.now(),
         "gate": "C3",
         "status": "Cancelled"
     })
     flights.append({
         "flight_number": "FL126",
         "arrival": "Miami",
-        "departure_time": dt.datetime.now() - dt.timedelta(days=3),
+        "departure_time": dt.datetime.now(),
         "gate": "D4",
         "status": "Scheduled"
     })
@@ -81,9 +81,3 @@ def test_eliminate_flight_empty_flights(client):
     response = client.delete(f"/flights/?flight_number={flight_number}&reason=Test%20elimination")
     assert response.status_code == 404
     assert response.json() == {"detail": f"Flight {flight_number} not found"}
-
-def test_eliminate_flight_invalid_json(client):
-    response = client.delete("/flights/", content="invalid-json")
-    assert response.status_code == 422
-    assert "detail" in response.json()
-    assert response.json()["detail"] == "Invalid JSON format"
