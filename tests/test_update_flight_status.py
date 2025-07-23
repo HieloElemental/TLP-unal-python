@@ -15,14 +15,14 @@ def reset_flights():
     flights.append({
         "flight_number": "FL124",
         "arrival": "New York",
-        "departure_time": dt.datetime.now() + dt.timedelta(hours=2),
+        "departure_time": dt.datetime.now(),
         "gate": "B2",
         "status": "Scheduled"
     })
     flights.append({
         "flight_number": "FL125",
         "arrival": "Chicago",
-        "departure_time": dt.datetime.now() + dt.timedelta(hours=1),
+        "departure_time": dt.datetime.now(),
         "gate": "C3",
         "status": "Cancelled"
     })
